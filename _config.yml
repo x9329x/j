@@ -1,2 +1,5 @@
+title: My Microblog
+description: Android to GitHub Microblog
+theme: my own
 sass:
   style: compressed
