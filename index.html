@@ -2,21 +2,20 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>My Microblog</title>
-    <link rel="stylesheet" href="style.css">
+    ...
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<div id="grid-container" class="grid"></div> 
-<div id="feed" class="feed"></div> 
-    <script src="script.js"></script>     
-    <div id="feed">
-        <h1>나의 마이크로블로그</h1>
-        <p>글을 불러오는 중...</p>
-    </div>
+    <div class="container">
+        <header class="activity-graph">
+            <h3>Post Activity</h3>
+            <div id="grid-container" class="grid"></div>
+        </header>
 
-    <script>
-        // 간단한 확인용 메시지
-        console.log("블로그 로드 완료!");
-    </script>
+        <main id="feed" class="feed">
+            <p style="padding: 20px;">게시물을 불러오는 중...</p>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
-</html>
