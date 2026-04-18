@@ -2,15 +2,14 @@
 ---
 $color-bg: #ffffff;
 $color-border: #eff3f4;
-$color-gh-green: #2da44e;
-$color-text-main: #0f1419;
+$color-gh-green: #2da44e; // 게시물 있을 때 색상
+$color-gh-gray: #ebedf0;  // 게시물 없을 때 색상
 $color-text-sub: #536471;
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, sans-serif;
     margin: 0;
     background-color: $color-bg;
-    color: $color-text-main;
     display: flex;
     justify-content: center;
 }
@@ -26,48 +25,38 @@ body {
 .activity-graph {
     padding: 20px;
     border-bottom: 1px solid $color-border;
-    h3 { font-size: 16px; margin: 0 0 12px 0; }
-    
+    h3 { font-size: 14px; color: $color-text-sub; margin: 0 0 10px 0; }
+
+    .grid-wrapper {
+        overflow-x: auto; // 화면 작을 때 가로 스크롤 가능하게
+    }
+
     .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 12px);
+        display: inline-grid;
+        // 1년치 잔디를 53열로 배치 (GitHub 스타일)
+        grid-template-columns: repeat(53, 12px); 
+        grid-template-rows: repeat(7, 12px);
         gap: 3px;
-        
+
         .cell {
             width: 12px;
             height: 12px;
-            background-color: #ebedf0;
+            background-color: $color-gh-gray; // 기본 색상
             border-radius: 2px;
-            &.active { background-color: $color-gh-green; }
+            
+            &.active {
+                background-color: $color-gh-green !important; // 게시물 있는 날 강제 색칠
+            }
         }
     }
 }
 
 .feed {
-    .loading { padding: 20px; text-align: center; color: $color-text-sub; }
-    
     .post {
         padding: 15px 20px;
         border-bottom: 1px solid $color-border;
-        
-        .post-header {
-            margin-bottom: 5px;
-            .author { font-weight: 800; font-size: 15px; }
-            .date { color: $color-text-sub; font-size: 14px; margin-left: 5px; }
-        }
-        
-        .post-content {
-            font-size: 15px;
-            line-height: 1.6;
-            word-wrap: break-word;
-            p { margin: 5px 0; }
-        }
-        
-        .post-image {
-            margin-top: 10px;
-            max-width: 100%;
-            border-radius: 12px;
-            border: 1px solid $color-border;
-        }
+        .author { font-weight: bold; }
+        .date { color: $color-text-sub; font-size: 13px; margin-left: 4px; }
+        .post-content { margin-top: 8px; font-size: 15px; line-height: 1.5; }
     }
 }
