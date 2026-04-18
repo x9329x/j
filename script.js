@@ -34,7 +34,7 @@ async function initBlog() {
             const postHtml = `
                 <article class="post">
                     <div class="post-header">
-                        <span class="author">User</span>
+                        <span class="author">jyun</span>
                         <span class="date">· ${dateStr}</span>
                     </div>
                     <div class="post-content">${content.replace(/\n/g, '<br>')}</div>
